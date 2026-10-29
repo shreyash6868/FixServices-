@@ -5,6 +5,8 @@ $counts=$pdo->query("SELECT COUNT(*) FROM categories WHERE active=1")->fetchColu
 $services=$pdo->query("SELECT s.id,s.title,s.description,s.price,c.name category,u.name provider FROM services s JOIN categories c ON c.id=s.category_id JOIN users u ON u.id=s.provider_id WHERE s.active=1 AND u.provider_status='approved' ORDER BY s.created_at DESC LIMIT 6")->fetchAll();
 include 'includes/header.php';
 ?>
+<script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2026/10/28/10/20261028104204-F8OESBCU.js" defer></script>
 <section class="hero mb-5">
  <span class="badge text-bg-warning mb-3">Local help, made simple</span>
  <h1 class="display-5 fw-bold">Home services, without the hassle.</h1>

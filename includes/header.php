@@ -20,9 +20,18 @@ $u = current_user();
   <div class="collapse navbar-collapse" id="nav">
    <div class="navbar-nav ms-auto align-items-lg-center">
     <a class="nav-link" href="services.php">Services</a>
-    <?php if ($u && $u['role']==='customer'): ?><a class="nav-link" href="my_bookings.php">My Bookings</a><a class="nav-link" href="complaint.php">Complaints</a><?php endif; ?>
-    <?php if ($u && $u['role']==='provider'): ?><a class="nav-link" href="provider_dashboard.php">Provider Dashboard</a><?php endif; ?>
-    <?php if ($u && $u['role']==='admin'): ?><a class="nav-link" href="admin.php">Admin</a><?php endif; ?>
+ 
+    <?php if ($u && $u['role']==='customer'): ?> 
+      <a class="nav-link" href="my_bookings.php">My Bookings</a>
+      <a class="nav-link" href="complaint.php">Complaints</a>   
+<a class="nav-link" href="about.php">About Us</a>
+<?php endif; ?>
+    <?php if ($u && $u['role']==='provider'): ?>
+      <a class="nav-link" href="provider_dashboard.php">Provider Dashboard</a><?php endif; ?>
+    <?php if ($u && $u['role']==='admin'): ?>
+      <a class="nav-link" href="admin.php">Admin</a>
+      
+      <?php endif; ?>
     <?php if ($u): ?>
       <span class="navbar-text mx-lg-2">Hi, <?= e($u['name']) ?></span>
       <a class="btn btn-light btn-sm ms-lg-2" href="logout.php">Logout</a>
@@ -38,3 +47,5 @@ $u = current_user();
 <?php if (!empty($_SESSION['flash'])): $f=$_SESSION['flash']; unset($_SESSION['flash']); ?>
 <div class="alert alert-<?= e($f['type']) ?> alert-dismissible fade show"><?= e($f['message']) ?><button class="btn-close" data-bs-dismiss="alert"></button></div>
 <?php endif; ?>
+
+
